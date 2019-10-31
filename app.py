@@ -48,7 +48,7 @@ def check_ga():
 	url = request.args.get("url", None)
 	try:
 		response = requests.get(url)
-		return 'OK'
+		return response.json()
 	except:
 		return'Checking error.'
 
