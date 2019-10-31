@@ -51,7 +51,7 @@ def check_ga():
 		response = requests.get(url, headers=headers)
 	except:
 		response.status_code = 'Checking error.'
-	return url
+	return response
  
  #    return 'For URL: {} response code are: {}'.format(url, response.status_code)
 
