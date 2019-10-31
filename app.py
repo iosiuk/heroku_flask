@@ -48,12 +48,9 @@ def check_ga():
 	url = request.args.get("url", None)
 	try:
 		response = requests.get(url)
-		return response
+		return 'OK'
 	except:
 		return'Checking error.'
-	
- 
- #    return 'For URL: {} response code are: {}'.format(url, response.status_code)
 
 # A welcome message to test our server
 @app.route('/')
