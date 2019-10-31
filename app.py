@@ -48,7 +48,10 @@ def check_ga():
 	url = request.args.get("url", None)
 	try:
 		response = requests.get(url)
-		return response.json()
+		if response.status_code != 200:
+			return 'Server Error'
+		else:
+			return '200'
 	except:
 		return'Checking error.'
 
