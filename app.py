@@ -49,9 +49,10 @@ def check_ga():
 	try:
 		headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
 		response = requests.get(url, headers=headers)
+		return response
 	except:
-		response.status_code = 'Checking error.'
-	return response
+		return'Checking error.'
+	
  
  #    return 'For URL: {} response code are: {}'.format(url, response.status_code)
 
