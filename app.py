@@ -1,5 +1,7 @@
 # app.py
 from flask import Flask, request, jsonify, render_template
+import requests
+
 app = Flask(__name__)
 
 @app.route('/getmsg/', methods=['GET'])
@@ -43,7 +45,13 @@ def post_something():
 
 @app.route('/check_ga/', methods=['GET'])
 def check_ga():
-    return "OK"
+	url = request.args.get("url", None)
+    try:
+        headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
+        response = requests.get(url, headers=headers)
+    except:
+        response.status_code = 'Checking error.'
+    return 'For URL: {} response code are: {}'.format(url, response.status_code)
 
 # A welcome message to test our server
 @app.route('/')
